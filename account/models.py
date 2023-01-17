@@ -7,9 +7,19 @@ from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
 
 # Create your models here.
+
+class Games(models.Models):
+    game_name = models.charField(max_length=100)
+    game_file = models.charField(max_length=100)
+    game_year = models.IntegerField()
+
+    def __str__(self):
+        return self.game_name
+
 class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     avatar = models.ImageField(upload_to ='avatars/', null=True, blank=True)
+    Games = models.ManyToManyField(Games)
 
     def __str__(self):
         return self.username
@@ -18,3 +28,4 @@ class User(AbstractUser):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+
