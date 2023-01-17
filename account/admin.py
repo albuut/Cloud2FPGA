@@ -1,5 +1,5 @@
 from django.contrib import admin
-from account.models import User
+from account.models import User, Games
 from account.forms import CustomUserForm
 from django.contrib.auth.admin import UserAdmin
 
@@ -24,3 +24,4 @@ class CustomUserAdminPage(UserAdmin):
 
 
 admin.site.register(User,CustomUserAdminPage)
+admin.site.register(Games)
