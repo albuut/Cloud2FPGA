@@ -1,8 +1,9 @@
-from rest_framework import status
+from rest_framework import status,viewsets
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from account.models import Games, User
 
-from account.api.serializers import RegistrationSerializer
+from account.api.serializers import RegistrationSerializer,GameSerializer,UserGameSerializer
 from rest_framework.authtoken.models import Token
 
 # Create your views here.
@@ -22,3 +23,17 @@ def registration_view(request):
         else:
             data = serializer.errors
         return Response(data)
+
+class UserGameViewSet(viewsets.ModelViewSet):
+    serializer_class = UserGameSerializer
+
+    def get_queryset(self):
+        usergameinfo = User.objects.all()
+        return usergameinfo
+
+class GameViewSet(viewsets.ModelViewSet):
+    serializer_class = GameSerializer
+
+    def get_queryset(self):
+        gameinfo = Games.objects.all()
+        return gameinfo
