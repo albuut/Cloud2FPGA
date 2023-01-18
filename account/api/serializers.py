@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from account.models import User
+from account.models import User, Games
 
 class RegistrationSerializer(serializers.ModelSerializer):
 
@@ -26,3 +26,14 @@ class RegistrationSerializer(serializers.ModelSerializer):
         account.set_password(password)
         account.save()
         return account
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Games
+        fields = ['id','game_name','game_year']
+
+class UserGameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username','game']
+        depth = 1 #to get nested data
