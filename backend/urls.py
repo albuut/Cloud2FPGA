@@ -22,4 +22,5 @@ urlpatterns = [
 
     #REST
     path('api/account/', include('account.api.urls', 'account_api')),
+    path('account/',include('account.api.urls')),
 ]
