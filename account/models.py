@@ -8,9 +8,10 @@ from rest_framework.authtoken.models import Token
 
 # Create your models here.
 
-class Games(models.Models):
-    game_name = models.charField(max_length=100)
-    game_file = models.charField(max_length=100)
+class Games(models.Model):
+    game_name = models.CharField(max_length=100)
+    game_file = models.CharField(max_length=100)
+    file_location = models.CharField(max_length=100)
     game_year = models.IntegerField()
 
     def __str__(self):
@@ -19,7 +20,7 @@ class Games(models.Models):
 class User(AbstractUser):
     birth_date = models.DateField(null=True, blank=True)
     avatar = models.ImageField(upload_to ='avatars/', null=True, blank=True)
-    Games = models.ManyToManyField(Games)
+    game = models.ManyToManyField(Games)
 
     def __str__(self):
         return self.username
