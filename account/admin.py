@@ -20,6 +20,9 @@ class CustomUserAdminPage(UserAdmin):
         (
             'Profile Picture',{'fields':('avatar',)}
         ),
+        (
+            'Games',{'fields':('game',)}
+        ),
     )
 
 
