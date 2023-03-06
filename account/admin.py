@@ -21,7 +21,13 @@ class CustomUserAdminPage(UserAdmin):
             'Profile Picture',{'fields':('avatar',)}
         ),
         (
-            'Games',{'fields':('game',)}
+            'Add Games',{'fields':('add_games',)}
+        ),
+        (
+            'Added Games',{'fields':('added_games',)}
+        ),
+        (
+            'Remove Games',{'fields':('remove_games',)}
         ),
     )
 
