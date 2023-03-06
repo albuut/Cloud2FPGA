@@ -1,23 +1,28 @@
+
+
 [
 {
-    "model": "api.foo",
+    "model": "games.Games",
     "pk": 1,
     "fields": {
-        "name": "eek"
+        "game_name": "4D Warriors (315-5162)",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/4dwarrio.zip",
+        "file_location": "games/mame/4dwarrio.zip",
+        "game_year": "9999",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "4D Warriors (315-5162).mra"
     }
 },
 {
-    "model": "api.foo",
+    "model": "games.Games",
     "pk": 2,
     "fields": {
-        "name": "aaaaah!"
-    }
-},
-{
-    "model": "api.foo",
-    "pk": 3,
-    "fields": {
-        "name": "aaaaarghhh!"
+        "game_name": "19XX The War Against Destiny (Euro 960104)",
+        "game_file_link": "https://archive.org/download/mame.0229/19xx.zip, https://archive.org/download/mame.0229/qsound.zip",
+        "file_location": "games/mame/19xx.zip, games/mame/qsound.zip",
+        "game_year": "9999",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "19XX The War Against Destiny (Euro 960104).mra"
     }
 }
 ]
