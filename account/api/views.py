@@ -53,17 +53,13 @@ def userGameAPI(request,id=0):
         data = user_serializer.data
         
 
-        #using FileResponse
-        #file = open(data[0]['game'][1]['rma_file'],'rb')
-        #response = FileResponse(file)
-
         ''' 
         --data-- returns the user of the specific user_id
         --data[0]['game']-- returns the list of games to that user
         --data[0]['game'][1]['rma_file']-- returns the file path to the rma file
         #'''
-
-        return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
+        return JsonResponse(data, safe=False)
+        #return JsonResponse(data[0]['game'], safe=False)
         #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 
 
