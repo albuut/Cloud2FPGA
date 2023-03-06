@@ -13,7 +13,9 @@ class User(AbstractUser):
     account_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     birth_date = models.DateField(null=True, blank=True)
     avatar = models.ImageField(upload_to ='avatars/', null=True, blank=True)
-    game = models.ManyToManyField('games.Games')
+    add_games = models.ManyToManyField('games.Games', related_name="add_games")
+    added_games = models.ManyToManyField('games.Games', related_name="added_games")
+    remove_games = models.ManyToManyField('games.Games', related_name="remove_games")
     def __str__(self):
         return self.username
 
