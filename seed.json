@@ -109,4 +109,244 @@
         "rma_file": "1944 The Loop Master (Euro 000620).mra"
     }
 },
+{
+    "model": "games.Games",
+    "pk": 10,
+    "fields": {
+        "game_name": "Action Fighter (World, S16A) [FD1089A 317-0018]",
+        "game_file_link": "https://archive.org/download/mame.0240/afighter.zip",
+        "file_location": "games/mame/afighter.zip",
+        "game_year": "1986",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Action Fighter (World, S16A) [FD1089A 317-0018].mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 11,
+    "fields": {
+        "game_name": "Air Duel (Japan, M72 hardware)",
+        "game_file_link": "https://archive.org/download/mame.0240/airduel.zip",
+        "file_location": "games/mame/airduel.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Air Duel (Japan, M72 hardware).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 12,
+    "fields": {
+        "game_name": "Alex Kidd The Lost Stars (Set 2, World, S16A) [No Protection]",
+        "game_file_link": "https://archive.org/download/mame.0240/alexkidd.zip",
+        "file_location": "games/mame/alexkidd.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Alex Kidd The Lost Stars (Set 2, World, S16A) [No Protection].mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 13,
+    "fields": {
+        "game_name": "Ali Baba and 40 Thieves",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/alibaba.zip",
+        "file_location": "games/mame/alibaba.zip",
+        "game_year": "1982",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Ali Baba and 40 Thieves.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 14,
+    "fields": {
+        "game_name": "Alien Arena (Stargate upgrade)",
+        "game_file_link": "https://archive.org/download/MAME218RomsOnlyMerged/MAME%200.218%20ROMs%20%28merged%29.zip/alienar.zip",
+        "file_location": "games/mame/alienar.zip",
+        "game_year": "2004",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Alien Arena (Stargate upgrade).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 15,
+    "fields": {
+        "game_name": "Alien Syndrome (set 4, System 16B, unprotected)",
+        "game_file_link": "https://archive.org/download/mame.0240/aliensyn.zip",
+        "file_location": "games/mame/aliensyn.zip",
+        "game_year": "1986",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Alien Syndrome (set 4, System 16B, unprotected).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 15,
+    "fields": {
+        "game_name": "Altered Beast (set 8) (8751 317-0078)",
+        "game_file_link": "https://archive.org/download/mame.0240/altbeast.zip",
+        "file_location": "games/mame/altbeast.zip",
+        "game_year": "1988",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Altered Beast (set 8) (8751 317-0078).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 16,
+    "fields": {
+        "game_name": "Amazing Maze",
+        "game_file_link": "https://archive.org/download/mame.0240/amazon.zip",
+        "file_location": "games/mame/amazon.zip",
+        "game_year": "1976",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Amazing Maze.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 17,
+    "fields": {
+        "game_name": "Amidar (Scramble)",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/amidar.zip",
+        "file_location": "games/mame/amidar.zip",
+        "game_year": "1981",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Amidar (Scramble).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 18,
+    "fields": {
+        "game_name": "Arkanoid (W)",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/arkanoid.zip",
+        "file_location": "games/mame/arkanoid.zip",
+        "game_year": "1986",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Arkanoid (W).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 19,
+    "fields": {
+        "game_name": "Armed F (Japan)",
+        "game_file_link": "https://archive.org/download/mame.0240/armedf.zip",
+        "file_location": "games/mame/armedf.zip",
+        "game_year": "1988",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Armed F (Japan).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 20,
+    "fields": {
+        "game_name": "Armored Car",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/armorcar.zip",
+        "file_location": "games/mame/armorcar.zip",
+        "game_year": "1981",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Armored Car.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 20,
+    "fields": {
+        "game_name": "Armored Warriors (Euro 941024)",
+        "game_file_link": "https://archive.org/download/mame.0229/armwar.zip",
+        "file_location": "games/mame/armwar.zip",
+        "game_year": "1994",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Armored Warriors (Euro 941024).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 21,
+    "fields": {
+        "game_name": "ASO",
+        "game_file_link": "https://archive.org/download/mame.0240/aso.zip",
+        "file_location": "games/mame/aso.zip",
+        "game_year": "1985",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "ASO.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 22,
+    "fields": {
+        "game_name": "Asteroids Deluxe",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/astdelux.zip",
+        "file_location": "games/mame/astdelux.zip",
+        "game_year": "1980",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Asteroids Deluxe.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 23,
+    "fields": {
+        "game_name": "Asteroids",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/asteroid.zip",
+        "file_location": "games/mame/asteroid.zip",
+        "game_year": "1979",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Asteroids.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 24,
+    "fields": {
+        "game_name": "Athena",
+        "game_file_link": "https://archive.org/download/mame.0240/athena.zip",
+        "file_location": "games/mame/athena.zip",
+        "game_year": "1986",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Athena.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 25,
+    "fields": {
+        "game_name": "Attack Force",
+        "game_file_link": "https://archive.org/download/mame.0240/attackfc.zip",
+        "file_location": "games/mame/attackfc.zip",
+        "game_year": "1980",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Attack Force.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 26,
+    "fields": {
+        "game_name": "Aurail (set 3, US) (unprotected)",
+        "game_file_link": "https://archive.org/download/mame.0240/aurail.zip",
+        "file_location": "games/mame/aurail.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Aurail (set 3, US) (unprotected).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 27,
+    "fields": {
+        "game_name": "Azurian Attack",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/azurian.zip",
+        "file_location": "games/mame/azurian.zip",
+        "game_year": "1982",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "Azurian Attack.mra"
+    }
+},
 ]
