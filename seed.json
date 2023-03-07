@@ -24,5 +24,89 @@
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "19XX The War Against Destiny (Euro 960104).mra"
     }
-}
+},
+{
+    "model": "games.Games",
+    "pk": 3,
+    "fields": {
+        "game_name": "280Z-ZZAP (US)",
+        "game_file_link": "https://archive.org/download/mame.0240/280zzzap.zip",
+        "file_location": "games/mame/280zzzap.zip",
+        "game_year": "1976",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "280Z-ZZAP (US).mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 4,
+    "fields": {
+        "game_name": "1941  Counter Attack -World 900227-",
+        "game_file_link": "https://archive.org/download/mame.0229/19xx.zip, https://archive.org/download/mame.0229/qsound.zip",
+        "file_location": "games/mame/19xx.zip, games/mame/qsound.zip",
+        "game_year": "1941",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1941  Counter Attack -World 900227-.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 5,
+    "fields": {
+        "game_name": "1941  Counter Attack -World 900227-",
+        "game_file_link": "https://archive.org/download/mame.0240/1941.zip",
+        "file_location": "games/mame/1941.zip",
+        "game_year": "1941",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1941  Counter Attack -World 900227-.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 6,
+    "fields": {
+        "game_name": "1942",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1942.zip",
+        "file_location": "games/mame/1942.zip",
+        "game_year": "1984",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1942.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 7,
+    "fields": {
+        "game_name": "1943 Kai Midway Kaisen",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943kai.zip",
+        "file_location": "games/mame/1943kai.zip",
+        "game_year": "1987",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1943 Kai Midway Kaisen.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 8,
+    "fields": {
+        "game_name": "1943 The Battle of Midway Mark II",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943mii.zip",
+        "file_location": "games/mame/1943mii.zip",
+        "game_year": "1987",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1943 The Battle of Midway Mark II.mra"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 9,
+    "fields": {
+        "game_name": "1944 The Loop Master (Euro 000620)",
+        "game_file_link": "games/mame/1944.zip",
+        "file_location": "games/mame/1944.zip",
+        "game_year": "2000",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "1944 The Loop Master (Euro 000620).mra"
+    }
+},
 ]
