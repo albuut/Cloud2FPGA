@@ -44,12 +44,12 @@
     "model": "games.Games",
     "pk": 4,
     "fields": {
-        "game_name": "1941  Counter Attack -World 900227-",
+        "game_name": "Adventure Quiz Capcom World 2 -Japan 920611-",
         "game_file_link": "https://archive.org/download/mame.0229/19xx.zip, https://archive.org/download/mame.0229/qsound.zip",
-        "file_location": "games/mame/19xx.zip, games/mame/qsound.zip",
+        "file_location": "games/mame/cworld2j.zip",
         "game_year": "1941",
         "cover": "https://www.igdb.com/ find the image",
-        "rma_file": "rmaFolder/1941_Counter_Attack_WorlD_900227.mra",
+        "rma_file": "rmaFolder/Adventure_Quiz_Capcom_World_2_Japan_920611.mra"",
         "file_size": "xxxx"
     }
 },
@@ -111,7 +111,7 @@
     "fields": {
         "game_name": "1944 The Loop Master (Euro 000620)",
         "game_file_link": "games/mame/1944.zip",
-        "file_location": "games/mame/1944.zip",
+        "file_location": "games/mame/1944.zip, games/mame/qsound.zip",
         "game_year": "2000",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/1944_The_Loop_Master_Euro_000620.mra",
@@ -137,7 +137,7 @@
     "fields": {
         "game_name": "Air Duel (Japan, M72 hardware)",
         "game_file_link": "https://archive.org/download/mame.0240/airduel.zip",
-        "file_location": "games/mame/airduel.zip",
+        "file_location": "games/mame/airduel.zip, games/mame/airdueljm72.zip",
         "game_year": "1990",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Air_Duel_Japan_M72_hardware.mra",
@@ -176,7 +176,7 @@
     "fields": {
         "game_name": "Alien Arena (Stargate upgrade)",
         "game_file_link": "https://archive.org/download/MAME218RomsOnlyMerged/MAME%200.218%20ROMs%20%28merged%29.zip/alienar.zip",
-        "file_location": "games/mame/alienar.zip",
+        "file_location": "games/mame/alienar.zip, games/mame/alienaru.zip",
         "game_year": "2004",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Alien_Arena_Stargate_upgrade.mra",
@@ -189,23 +189,10 @@
     "fields": {
         "game_name": "Alien Syndrome (set 4, System 16B, unprotected)",
         "game_file_link": "https://archive.org/download/mame.0240/aliensyn.zip",
-        "file_location": "games/mame/aliensyn.zip",
+        "file_location": "games/mame/aliensyn.zip, games/mame/s16mcu_alt.zip",
         "game_year": "1986",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Alien_Syndrome_set_4_System_16B_unprotected.mra",
-        "file_size": "xxxx"
-    }
-},
-{
-    "model": "games.Games",
-    "pk": 15,
-    "fields": {
-        "game_name": "Altered Beast (set 8) (8751 317-0078)",
-        "game_file_link": "https://archive.org/download/mame.0240/altbeast.zip",
-        "file_location": "games/mame/altbeast.zip",
-        "game_year": "1988",
-        "cover": "https://www.igdb.com/ find the image",
-        "rma_file": "rmaFolder/Altered_Beast_set_8_8751_317_0078.mra",
         "file_size": "xxxx"
     }
 },
@@ -215,7 +202,7 @@
     "fields": {
         "game_name": "Amazing Maze",
         "game_file_link": "https://archive.org/download/mame.0240/amazon.zip",
-        "file_location": "games/mame/amazon.zip",
+        "file_location": "games/mame/maze.zip",
         "game_year": "1976",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Amazing_Maze.mra",
@@ -228,7 +215,7 @@
     "fields": {
         "game_name": "Amidar (Scramble)",
         "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/amidar.zip",
-        "file_location": "games/mame/amidar.zip",
+        "file_location": "games/mame/amidar.zip, games/mame/amidars.zip",
         "game_year": "1981",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Amidar_Scramble.mra",
@@ -241,7 +228,7 @@
     "fields": {
         "game_name": "Arkanoid (W)",
         "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/arkanoid.zip",
-        "file_location": "games/mame/arkanoid.zip",
+        "file_location": "games/mame/arkanoid.zip, games/mame/arkatayt.zip",
         "game_year": "1986",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Arkanoid_W.mra",
@@ -280,7 +267,7 @@
     "fields": {
         "game_name": "Armored Warriors (Euro 941024)",
         "game_file_link": "https://archive.org/download/mame.0229/armwar.zip",
-        "file_location": "games/mame/armwar.zip",
+        "file_location": "games/mame/armwar.zip, games/mame/qsound.zip",
         "game_year": "1994",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Armored_Warriors_Euro_941024.mra"
@@ -358,7 +345,7 @@
     "fields": {
         "game_name": "Aurail (set 3, US) (unprotected)",
         "game_file_link": "https://archive.org/download/mame.0240/aurail.zip",
-        "file_location": "games/mame/aurail.zip",
+        "file_location": "games/mame/aurail.zip, games/mame/s16mcu_alt.zip",
         "game_year": "1990",
         "cover": "https://www.igdb.com/ find the image",
         "rma_file": "rmaFolder/Aurail.mra",
@@ -378,4 +365,70 @@
         "file_size": "xxxx"
     }
 },
+{
+    "model": "games.Games",
+    "pk": 28,
+    "fields": {
+        "game_name": "Altered Beast (set 8) (8751 317-0078)",
+        "game_file_link": "https://archive.org/download/mame.0240/altbeast.zip",
+        "file_location": "games/mame/altbeast.zip, games/mame/s16mcu_alt.zip",
+        "game_year": "1988",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Altered_Beast_set_8_8751_317_0078.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 29,
+    "fields": {
+        "game_name": "Alien vs. Predator (Euro 940520)",
+        "game_file_link": "https://archive.org/download/mame.0240/altbeast.zip",
+        "file_location": "games/mame/avsp.zip, games/mame/qsound.zip",
+        "game_year": "1988",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Alien_vs_Predator_Euro_940520.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 30,
+    "fields": {
+        "game_name": "1943 Midway Kaisen",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943kai.zip",
+        "file_location": "games/mame/1943.zip, games/mame/1943j.zip",
+        "game_year": "1987",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/1943_Midway_Kaisen.mra",
+        "file_size": "xxxx"
+   }
+},
+{
+    "model": "games.Games",
+    "pk": 31,
+    "fields": {
+        "game_name": "1943 The Battle of Midway",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943mii.zip",
+        "file_location": "games/mame/1943.zip, games/mame/1943u.zip",
+        "game_year": "1987",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/1943_The_Battle_of_Midway.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 32,
+    "fields": {
+        "game_name": "Air Duel (World, M72 hardware)",
+        "game_file_link": "https://archive.org/download/mame.0240/airduel.zip",
+        "file_location": "games/mame/airduel.zip, games/mame/airduelm72.zip.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Air_Duel_World_M72_hardware.mra",
+        "file_size": "xxxx"
+    }
+},
+    
 ]
