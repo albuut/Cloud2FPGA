@@ -49,7 +49,7 @@
         "file_location": "games/mame/cworld2j.zip",
         "game_year": "1941",
         "cover": "https://www.igdb.com/ find the image",
-        "rma_file": "rmaFolder/Adventure_Quiz_Capcom_World_2_Japan_920611.mra"",
+        "rma_file": "rmaFolder/Adventure_Quiz_Capcom_World_2_Japan_920611.mra",
         "file_size": "xxxx"
     }
 },
@@ -383,7 +383,7 @@
     "pk": 29,
     "fields": {
         "game_name": "Alien vs. Predator (Euro 940520)",
-        "game_file_link": "https://archive.org/download/mame.0240/altbeast.zip",
+        "game_file_link": "https://archive.org/download/mame.0229/avsp.zip",
         "file_location": "games/mame/avsp.zip, games/mame/qsound.zip",
         "game_year": "1988",
         "cover": "https://www.igdb.com/ find the image",
@@ -396,7 +396,7 @@
     "pk": 30,
     "fields": {
         "game_name": "1943 Midway Kaisen",
-        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943kai.zip",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943.zip",
         "file_location": "games/mame/1943.zip, games/mame/1943j.zip",
         "game_year": "1987",
         "cover": "https://www.igdb.com/ find the image",
@@ -409,7 +409,7 @@
     "pk": 31,
     "fields": {
         "game_name": "1943 The Battle of Midway",
-        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943mii.zip",
+        "game_file_link": "https://archive.org/download/MAME216RomsOnlyMerged/1943.zip",
         "file_location": "games/mame/1943.zip, games/mame/1943u.zip",
         "game_year": "1987",
         "cover": "https://www.igdb.com/ find the image",
@@ -430,5 +430,108 @@
         "file_size": "xxxx"
     }
 },
-    
+{
+    "model": "games.Games",
+    "pk": 33,
+    "fields": {
+        "game_name": "Bad Dudes vs. Dragonninja (US revision 1)",
+        "game_file_link": "https://archive.org/download/mame.0240/baddudes.zip",
+        "file_location": "games/mame/baddudes.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Bad_Dudes_vs_Dragonninja_US_revision_1.mra",
+        "file_size": "xxxx"
+    }
+},    
+{
+    "model": "games.Games",
+    "pk": 34,
+    "fields": {
+        "game_name": "Battle Circuit (Euro 970319)",
+        "game_file_link": "https://archive.org/download/mame.0229/batcir.zip",
+        "file_location": "games/mame/batcir.zip, games/mame/qsound.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Battle_Circuit_Euro_970319.mra",
+        "file_size": "xxxx"
+    }
+}, 
+{
+    "model": "games.Games",
+    "pk": 35,
+    "fields": {
+        "game_name": "Bay Route (set 3, World) (FD1094 317-0116)",
+        "game_file_link": "https://archive.org/download/mame.0240/bayroute.zip",
+        "file_location": "games/mame/bayroute.zip, games/mame/s16mcu_alt.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Bay_Route_set_3_World_FD1094_317_0116.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 36,
+    "fields": {
+        "game_name": "Berzerk",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/berzerk.zip",
+        "file_location": "games/mame/berzerk.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Berzerk.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 37,
+    "fields": {
+        "game_name": "Big Kong",
+        "game_file_link": "https://archive.org/download/mame.0240/ckong.zip",
+        "file_location": "games/mame/ckong.zip, games/mame/bigkong.zip, games/mame/ckongo.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Big_Kong.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 38,
+    "fields": {
+        "game_name": "Billiard",
+        "game_file_link": "https://archive.org/download/mame.0229/bilyard.zip",
+        "file_location": "games/mame/bilyard.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Billiard.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 39,
+    "fields": {
+        "game_name": "Birdiy",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/birdiy.zip",
+        "file_location": "games/mame/birdiy.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Birdiy.mra",
+        "file_size": "xxxx"
+    }
+},
+{
+    "model": "games.Games",
+    "pk": 40,
+    "fields": {
+        "game_name": "Black Hole",
+        "game_file_link": "https://archive.org/download/MAME220RomsOnlyMerged/blkhole.zip",
+        "file_location": "games/mame/blkhole.zip",
+        "game_year": "1990",
+        "cover": "https://www.igdb.com/ find the image",
+        "rma_file": "rmaFolder/Black_Hole.mra",
+        "file_size": "xxxx"
+    }
+},
 ]
