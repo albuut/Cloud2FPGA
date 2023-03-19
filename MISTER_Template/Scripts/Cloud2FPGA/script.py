@@ -1,8 +1,8 @@
-
 import requests
 import json
 import math
 import os
+import urllib.parse
 
 def get_data(data_location):
     f = open(data_location,"r")
@@ -101,7 +101,6 @@ def write_Game(text):
     #split up the file ['Azurian Attack', '/media/rmaFolder/Azurian%20Attack.mra', '/media/rbfFolder/jtcps1_20220819.rbf','arcade','https://archive.org/download/MAME220RomsOnlyMerged/azurian.zip', 'games/mame/azurian.zip\n']
     game = text.split(',')
     if game[3] == "arcade":
-        print("arcade")
         #get the rma file replace the %20 characters that show up from .get()
         #print((game[1].replace('%20',' ')))
         split = (game[1].replace('%20',' ')).split('/')
@@ -114,6 +113,8 @@ def write_Game(text):
 
         #write the mra file
         r4 = requests.get('http://' + ip_addr + ':8000/media/rmaFolder/' + mra)
+        mra = urllib.parse.unquote(mra)
+        print(mra)
         with open('../../_Arcade/'+mra,'wb') as fx:
             fx.write(r4.content)
         python_sucks = 0
@@ -444,5 +445,4 @@ try:
         #print("could not connect to server")
 except requests.exceptions.RequestException as e:
     raise SystemExit(e)
-
 
