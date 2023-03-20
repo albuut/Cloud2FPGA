@@ -5,6 +5,10 @@
           <div class="mystuff">
             <div class="fpga" v-if="!showFullCatalog">
                 <h2 class="fpgatitle">FPGA board connected</h2>
+                <div class="storageinfo">
+                  <h2>Total Storage: {{ total_storage }}</h2>
+                  <h2>Current Storage: {{ current_storage }}</h2>
+                </div>
                 <div class="sendbutton">Send games to board</div>
             </div>
             <div class="mygames" v-if="!showFullCatalog">
@@ -55,6 +59,9 @@
     height: 100vh;
     background-color: #ffffff;
 
+}
+.storageinfo{
+  padding-top:20px;
 }
 .mystuff {
     display: flex;
@@ -152,7 +159,9 @@
         allGames: allGames,
         nextPageURL: null,
         prevPageURL: null,
-        showFullCatalog: true
+        showFullCatalog: true,
+        total_storage: null,
+        current_storage:null
       }
     },
     methods: {
@@ -161,6 +170,16 @@
           console.log(response)
           this.allGames = response.data.results
           this.nextPageURL = response.data.next.slice(16)
+        })
+        .catch((err) =>{
+          console.log(err)
+        })
+      },
+      getUserStorage(){
+        this.$http.get('/api/account/current_storage').then((response) =>{
+          console.log(response)
+          this.total_storage = response.data.total_storage
+          this.current_storage = response.data.current_storage
         })
         .catch((err) =>{
           console.log(err)
@@ -211,6 +230,7 @@
     created(){
       this.getAllGames()
       this.getUserGames()
+      this.getUserStorage()
     }
 };
 </script>
