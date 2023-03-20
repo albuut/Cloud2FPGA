@@ -28,9 +28,8 @@ from django.core.files.storage import default_storage
 
 # Create your views here.
 @api_view(['POST',])
-@permission_classes(AllowAny,)
+@permission_classes((AllowAny,))
 def registration_view(request):
-
     if request.method == 'POST':
         serializer = RegistrationSerializer(data=request.data)
         data = {}
