@@ -1,0 +1,4 @@
+4D Warriors (315-5162),/media/rmaFolder/4D%20Warriors%20(315-5162).mra,/media/rbfFolder/SEGASYS1_20210618.rbf,arcade,https://archive.org/download/MAME216RomsOnlyMerged/4dwarrio.zip,games/mame/4dwarrio.zip
+280Z-ZZAP (US),/media/rmaFolder/280Z-ZZAP%20(US).mra,/media/rbfFolder/SpaceInvaders_20211201.rbf,arcade,https://archive.org/download/mame.0240/280zzzap.zip,games/mame/280zzzap.zip
+1942,/media/rmaFolder/1942.mra,/media/rbfFolder/jt1942_20220819.rbf,arcade,https://archive.org/download/MAME216RomsOnlyMerged/1942.zip,https://archive.org/download/hbmame0220/1942.zip,games/mame/1942.zip,games/hbmame/1942.zip
+Megaman Zero 4 (USA),/media/games/GBA/Megaman%20Zero%204%20(USA).zip,/media/rbfFolder/Megaman%20Zero%204%20(USA).zip,core,EMPTY,EMPTY

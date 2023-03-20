@@ -23,6 +23,12 @@ class CustomUserAdminPage(UserAdmin):
         (
             'Games',{'fields':('game',)}
         ),
+        (
+            'Storage',{'fields':('current_storage','total_storage',)}
+        ),
+        (
+            'Syncing Variables',{'fields':('play_flag','sync_flag','sync_done_flag','updated',)}
+        ),
     )
 
 

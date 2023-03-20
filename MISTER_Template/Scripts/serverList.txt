@@ -1,1 +1,0 @@
-Athena,/media/rmaFolder/Athena.mra,https://archive.org/download/mame.0240/athena.zip,games/mame/athena.zip

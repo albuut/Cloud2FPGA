@@ -3,16 +3,15 @@
       <div class="modal">
         <header class="modal-header">
           <div name="header">
-            {{ info.gameTitle }}
+            {{ info.game_name}}
           </div>
           <div class="platandYear">
-            <p class="plat">{{info.gamePlatform}}</p>
-            <p class="plat">{{info.releaseYear}}</p>
+            <p class="plat">{{info.game_year}}</p>
           </div>
         </header>
   
         <div class="modal-body">
-          <img class="boxart" :src="info.boxart" alt="boxart not found">
+          <img class="boxart" :src="info.cover" alt="boxart not found">
          </div>
   
         <footer class="modal-footer">
@@ -93,6 +92,7 @@ export default {
     height:34.68px;
     width:84.9px;
     margin: auto;
+    margin-top: 10px;
     margin-bottom: 10px;
   }
   .boxart{

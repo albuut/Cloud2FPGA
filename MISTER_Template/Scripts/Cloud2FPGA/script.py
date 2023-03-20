@@ -4,11 +4,17 @@ import json
 import math
 import os
 
+def get_data(data_location):
+    f = open(data_location,"r")
+    return f.read()
+
+
 class Hashmap:
     global ip_addr 
-    ip_addr = '127.0.0.1'
+    ip_addr = get_data("ip_addr.txt")
     global payload 
-    payload = {'value':'dcd167a6-6900-47e5-bf6c-ddb435067995'}
+    user_id = get_data("id_user.txt")
+    payload = {'value':user_id}
     def __init__(self, arrSize):
         self.size = arrSize
         self.map = [None] * self.size
@@ -108,17 +114,17 @@ def write_Game(text):
 
         #write the mra file
         r4 = requests.get('http://' + ip_addr + ':8000/media/rmaFolder/' + mra)
-        with open('../_Arcade/'+mra,'wb') as fx:
+        with open('../../_Arcade/'+mra,'wb') as fx:
             fx.write(r4.content)
         python_sucks = 0
 
         #write the rbf file
-        if os.path.exists('../_Arcade/cores/'+rbf):
+        if os.path.exists('../../_Arcade/cores/'+rbf):
             python_sucks = python_sucks + 1
         else:
             print("Writing rbf file")
             r5 = requests.get('http://'+ ip_addr + ':8000/media/rbfFolder/' + rbf)
-            with open('../_Arcade/cores/'+rbf,'wb') as fy:
+            with open('../../_Arcade/cores/'+rbf,'wb') as fy:
                 fy.write(r5.content)
 
         
@@ -150,9 +156,10 @@ def write_Game(text):
         for i in range(num_files):
             r1 = requests.get((file_link[i].strip('\n')).strip(' '))
             #get file
-            with open('../'+(file_path[i].strip('\n')).strip(' '),'wb') as fx:
+            with open('../../'+(file_path[i].strip('\n')).strip(' '),'wb') as fx:
                 fx.write(r1.content)
     elif game[3]== "core":
+        print("arcade")
         split = (game[1].replace('%20',' ')).split('/')
         game_folder = split[3]
         print(game_folder) #GBA
@@ -162,8 +169,8 @@ def write_Game(text):
         print(zip_name)
 
         #write the mra file
-        r4 = requests.get('http://' + ip_addr + ':8000/media/rmaFolder/' + game_folder)
-        with open('../games/'+game_folder+'/'+zip_name,'wb') as fx:
+        r4 = requests.get('http://' + ip_addr + ':8000/media/rmaFolder/' + zip_name)
+        with open('../../games/'+game_folder+'/'+zip_name,'wb') as fx:
             fx.write(r4.content)
         
 
@@ -184,8 +191,8 @@ def delete_Game(text):
 
         
         #delete MRA file
-        if os.path.exists('../_Arcade/'+mra):
-            os.remove('../_Arcade/'+mra)
+        if os.path.exists('../../_Arcade/'+mra):
+            os.remove('../../_Arcade/'+mra)
         # else:
             #do not remove the rbf file since one core supports multiple arcade games
             #print("File does not exist")
@@ -213,8 +220,8 @@ def delete_Game(text):
 
         #delete the zip files
         for i in range(num_files):
-            if os.path.exists('../'+(file_path[i].strip('\n')).strip(' ')):
-                os.remove('../'+(file_path[i].strip('\n')).strip(' '))
+            if os.path.exists('../../'+(file_path[i].strip('\n')).strip(' ')):
+                os.remove('../../'+(file_path[i].strip('\n')).strip(' '))
             # else:
             #     print("File does not exist")
 
@@ -229,8 +236,8 @@ def delete_Game(text):
         print(zip_name)
         
         #delete MRA file
-        if os.path.exists('../games/'+game_folder+'/'+zip_name):
-            os.remove('../games/'+game_folder+'/'+zip_name)
+        if os.path.exists('../../games/'+game_folder+'/'+zip_name):
+            os.remove('../../games/'+game_folder+'/'+zip_name)
         # else:
             #do not remove the rbf file since one core supports multiple arcade games
             #print("File does not exist")

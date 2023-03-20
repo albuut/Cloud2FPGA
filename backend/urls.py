@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf import settings #library for storing images
 from django.conf.urls.static import static #library for storing images
 from django.urls import include, path
+from django.conf.urls import url
 
 urlpatterns = [
     path('api/', include('api.urls')),
@@ -26,5 +27,8 @@ urlpatterns = [
 
     #REST
     path('api/account/', include('account.api.urls', 'account_api')),
+    path('api/games/', include('games.api.urls', 'game_api'))
+     #url(r'^', include('account.api.urls'))
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
