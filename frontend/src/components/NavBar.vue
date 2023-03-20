@@ -6,7 +6,10 @@
         </router-link>
         <div class="menu">
             <router-link to="/login"><div v-if="navbartype ==='home'" class="button">Get Started</div></router-link>
+            <router-link to="/faq"><div v-if="navbartype ==='faq'" class="button">FAQ</div></router-link>
+            <router-link to="/catalog"><div v-if="navbartype ==='catalog'" class="button">Catalog</div></router-link>
         </div>
+      
     </div>
 </template>
 
@@ -53,8 +56,10 @@ export default {
     font-size: 16pt; 
     color: #8AB0AB;
     line-height: 44px;
+    justify-self: right;
     
 }
+
 a {
     text-decoration: none;
 }

@@ -1,3 +1,3 @@
 <template>
-<h1>Successful login</h1>
+<h1>Successful Login</h1>
 </template>

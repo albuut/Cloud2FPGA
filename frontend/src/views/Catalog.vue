@@ -1,6 +1,6 @@
 <template>
     <div class="site">
-        <NavBar navbartype="login"/>
+      <NavBar navbartype="faq"/>
         <div class="content">
           <div class="mystuff">
             <div class="fpga" v-if="!showFullCatalog">
@@ -10,6 +10,22 @@
                   <h2>Current Storage: {{ current_storage }}</h2>
                 </div>
                 <div class="sendbutton">Send games to board</div>
+                <div class="fpgainfo">
+                  <h3 class="storageused">Storage Used:</h3>
+                  <h3 class="storageleft">Storage Remaining:</h3>
+                  <h3 class="totalstorage">Total Storage</h3>
+                </div>
+                <div class="filter">
+                  <label class="labeltitle" for="menu">Select a filter:</label>
+                  <div class="filterops">
+                    <select id="menu" name="menu">
+                      <option value="option4">None</option>
+                      <option value="option1">Category</option>
+                      <option value="option2">Manufacturer</option>
+                      <option value="option3">Game Type</option>
+                    </select>
+                  </div>
+                </div>
             </div>
             <div class="mygames" v-if="!showFullCatalog">
               <div class="switchTitles">
@@ -30,7 +46,6 @@
               <div class="switchTitles">
                 <h2 class="switchtitle" :class="{active: showFullCatalog}" @click="showFullCatalog=true">Catalog</h2>
                 <h2 class="switchtitle" :class="{active: showFullCatalog}" @click="showFullCatalog=false; getUserGames();">My Games</h2>
-              </div>
               <div class="theList">
                 <div v-for="game in allGames" :key="game.id" class="card">
                   <GameComp :info="game"/>
@@ -44,6 +59,7 @@
           </div>
         </div>
     </div>
+  </div>
 </template>
 
 <style>
@@ -53,12 +69,68 @@
     height: 100vh;
     background-color: #1A1D1A;
 }
+.filter{
+  display: flex;
+  flex-direction: row;
+  /* background-color: #6D8B9C; */
+  color: white;
+  height: 30px;
+  width: 288px;
+  justify-content: bottom;
+  margin-top:5%;
+  margin-bottom: 10%;
+  border-radius: 10px;
+}
+.labeltitle{
+  display: flex;
+  justify-content: top;
+  margin-top: 0px;
+  font-size: medium;
+  font-style: bold;
+  width: 100px;
+  color: black;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+.filterops {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  padding-right:20px;
+  justify-content: bottom;
+}
+
+/* Dropdown button on hover & focus */
+/* .dropbtn:hover, .dropbtn:focus {
+} */
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     height: 100vh;
     background-color: #ffffff;
+    padding-bottom: 30px;
 
+}
+.myGamestitle{
+  padding-left:20px;
 }
 .storageinfo{
   padding-top:20px;
@@ -77,6 +149,7 @@
 }
 .fpgatitle {
     width: 40%;
+    padding:20px;
 }
 .switchtitle {
   margin-left: 20px;
@@ -97,15 +170,16 @@
   flex-direction: row;
 }
 .sendbutton {
-  text-align: center;
-  vertical-align: middle;
-  height: 90px;
-  line-height: 90px;
-  width: 288px;
-  background-color: #6D8B9C;
-  border-radius: 15px;
-  font-size: 24px;
-  margin-top: 20%;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px;
+    line-height: 90px;
+    width: 288px;
+    background-color: #6D8B9C;
+    border-radius: 15px;
+    font-size: 24px;
+    margin-top: 10%;
+    padding-bottom: 10%;
 }
 .myList{
   display: grid;
@@ -147,6 +221,9 @@
   import allGames from "../assets/catalogGames.json"
   import GameComp from "../components/GameComp.vue";
   import NavBar from "../components/NavBar.vue";
+  var myFunction = function() {
+      document.getElementById("myDropdown").classList.toggle("show");
+  }
 
   export default {
     name: "HomePage",
@@ -230,6 +307,9 @@
     created(){
       this.getAllGames()
       this.getUserGames()
+    },
+    addjob: function() {
+    myFunction();
       this.getUserStorage()
     }
 };
