@@ -18,17 +18,18 @@ from django.conf import settings #library for storing images
 from django.conf.urls.static import static #library for storing images
 from django.urls import include, path
 from django.conf.urls import url
+from account.api.views import ChildCreateView
 
 urlpatterns = [
     path('api/', include('api.urls')),
     path('admin/', admin.site.urls),
     path('account/',include('account.api.urls', 'accounts')), #This was in the api folder I and it didnt work
     #when i put it in the backend it worked. made it unique kept getting error
-
+    path('parent/<int:id>/child/create/', ChildCreateView.as_view(), name='create_child'),
     #REST
     path('api/account/', include('account.api.urls', 'account_api')),
-    path('api/games/', include('games.api.urls', 'game_api'))
-     #url(r'^', include('account.api.urls'))
+    #url(r'^', include('account.api.urls'))
+
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

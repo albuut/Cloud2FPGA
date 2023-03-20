@@ -1,4 +1,4 @@
-from rest_framework import status
+from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny,IsAuthenticated
@@ -20,7 +20,8 @@ from django.http import FileResponse
 
 
 from account.models import User
-from account.api.serializers import UserGameSerializer,UserSyncSerializer, UserStorageInfo
+from games.models import Games
+from account.api.serializers import UserGameSerializer,UserSyncSerializer, UserStorageInfo,GameSerializer
 from django.core.files.storage import default_storage
 
 
@@ -112,3 +113,38 @@ def UserSyncAPI(request,id=0):
             user_serializer.save()
             return JsonResponse("Update Successfully",safe=False)
         return JsonResponse("Failed",safe=False)
+
+@csrf_exempt
+def UpdateUserGameAPI(request,id=0):
+    if request.method=='PUT':
+        user_data = JSONParser().parse((request))
+
+        user=User.objects.get(account_id=user_data['value'])
+        user_serializer = UserSyncSerializer(user,data=user_data)
+        data = user_serializer.data
+        # if user_serializer.is_valid():
+        #     user_serializer.save()
+        #     return JsonResponse("Update Successfully",safe=False)
+        return JsonResponse(data,safe=False)
+
+
+class ChildCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = GameSerializer
+
+    def create(self, request, *args, **kwargs):
+        parent_id = request.data.get('acount_id')
+        game_name = request.data.get('game_name')
+
+
+        parent = User.objects.filter(account_id=parent_id).first()
+
+        if not parent:
+            return Response({'acount_id': 'Invalid parent id'}, status=status.HTTP_400_BAD_REQUEST)
+
+        child = Games.objects.get(game_name=game_name)
+        parent.game.add(child)
+
+        serializer = self.get_serializer(child)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from account.models import User
+from games.models import Games
 
 class RegistrationSerializer(serializers.ModelSerializer):
 
@@ -39,6 +40,14 @@ class UserSyncSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['account_id','play_flag','sync_flag','sync_done_flag','updated','current_storage','total_storage']
+
+
+class GameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Games
+        fields = ['game_name','game_file_link','file_location','game_year','cover','file_size','rma_file','rbf_file','game_type','manufacturer','category']
+
+
 
 class UserStorageInfo(serializers.ModelSerializer):
     class Meta:
