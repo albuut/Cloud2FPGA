@@ -10,11 +10,6 @@
                   <h2>Current Storage: {{ current_storage }}</h2>
                 </div>
                 <div class="sendbutton">Send games to board</div>
-                <div class="fpgainfo">
-                  <h3 class="storageused">Storage Used:</h3>
-                  <h3 class="storageleft">Storage Remaining:</h3>
-                  <h3 class="totalstorage">Total Storage</h3>
-                </div>
                 <div class="filter">
                   <label class="labeltitle" for="menu">Select a filter:</label>
                   <div class="filterops">
