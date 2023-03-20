@@ -66,7 +66,15 @@ def userGameAPI(request,id=0):
         return JsonResponse(data[0]['game'], safe=False)
         #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 
-
+class UserStorageInfoView(RetrieveAPIView):
+    serializer_class = UserStorageInfo
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated)
+    def get_queryset(self):
+        user_id = Token.objects.get(key=self.request.auth.key).user_id
+        user = User.objects.get(account_id=user.id)
+        return user
+        #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 '''
 @csrf_exempt
 def userGameAPI(request):

@@ -33,3 +33,9 @@ class UserGameSerializer(serializers.ModelSerializer):
         model = User
         fields = ['account_id','username','game']
         depth = 1 #to get nested data
+
+class UserStorageInfo(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['current_storage','total_storage']
+        depth = 1 #to get nested data
