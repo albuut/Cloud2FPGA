@@ -47,3 +47,8 @@ class GameSerializer(serializers.ModelSerializer):
         model = Games
         fields = ['game_name','game_file_link','file_location','game_year','cover','file_size','rma_file','rbf_file','game_type','manufacturer','category']
 
+class UserStorageInfo(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['current_storage','total_storage']
+        depth = 1 #to get nested data

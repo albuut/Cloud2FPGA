@@ -7,9 +7,9 @@
                 <h2 class="fpgatitle">FPGA board connected</h2>
                 <div class="sendbutton">Send games to board</div>
                 <div class="fpgainfo">
-                  <h3 class="storageused">Storage Used:</h3>
-                  <h3 class="storageleft">Storage Remaining:</h3>
-                  <h3 class="totalstorage">Total Storage</h3>
+                  <h2>Current Storage: {{ currfileSize }}</h2>
+                  <h2>Total Storage: {{ totfileSize }}</h2>
+                  
                 </div>
                 <div class="filter">
                   <label class="labeltitle" for="menu">Select a filter:</label>
@@ -116,7 +116,10 @@
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
+.fpgainfo{
+  padding:20px;
+  padding-top:10px;
+}
 .content {
     display: flex;
     flex-direction: column;
@@ -229,15 +232,61 @@
         allGames: allGames,
         nextPageURL: null,
         prevPageURL: null,
-        showFullCatalog: true
+        showFullCatalog: true,
+        total_storage: null,
+        current_storage:null
       }
     },
+    computed: {
+      currfileSize() {
+      // Check if file size is less than 1000 MB
+      if (this.convertFileSize(this.current_storage) < 1000) {
+        return `${this.convertFileSize(this.current_storage)} MB`;
+      }
+      // Call the convertFileSize function and return the size in GB with the appropriate unit
+      const sizeInGB = this.convertFileSize2(this.current_storage);
+      return `${sizeInGB} GB`;
+    },
+    totfileSize() {
+      // Check if file size is less than 1000 MB
+      if (this.convertFileSize(this.total_storage) < 1000) {
+        return `${this.convertFileSize(this.total_storage)} MB`;
+      }
+      // Call the convertFileSize function and return the size in GB with the appropriate unit
+      const sizeInGB = this.convertFileSize2(this.total_storage);
+      return `${sizeInGB} GB`;
+    }
+    },
     methods: {
+      convertFileSize(sizeInB) {
+      // Convert size to GB
+      const sizeInGB = sizeInB / 1024;
+      // Round off to two decimal places
+      const roundedSizeInGB = Math.round(sizeInGB * 100) / 100;
+      return roundedSizeInGB;
+    },
+    convertFileSize2(sizeInMB) {
+      // Convert size to GB
+      const sizeInGB = sizeInMB / (1024*1024);
+      // Round off to two decimal places
+      const roundedSizeInGB = Math.round(sizeInGB * 100) / 100;
+      return roundedSizeInGB;
+    },
       getUserGames(){
         this.$http.get('/api/account/user_game').then((response) =>{
           console.log(response)
           this.allGames = response.data.results
           this.nextPageURL = response.data.next.slice(16)
+        })
+        .catch((err) =>{
+          console.log(err)
+        })
+      },
+      getUserStorage(){
+        this.$http.get('/api/account/current_storage').then((response) =>{
+          console.log(response)
+          this.total_storage = response.data.total_storage
+          this.current_storage = response.data.current_storage
         })
         .catch((err) =>{
           console.log(err)
@@ -288,9 +337,12 @@
     created(){
       this.getAllGames()
       this.getUserGames()
+      this.getUserStorage()
     },
     addjob: function() {
     myFunction();
+    
     }
+   
 };
 </script>
