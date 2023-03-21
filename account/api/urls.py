@@ -3,7 +3,7 @@ from django.conf.urls import url
 from account.api import views
 from account.api.views import(
 
-    registration_view,userGameAPI,UserSyncAPI,UserGameApiView,ChildCreateView,UpdateUserGameAPI
+    registration_view,userGameAPI,UserSyncAPI,UserGameApiView,ChildCreateView,UpdateUserGameAPI,UserStorageInfoView
 
 )
 
@@ -21,7 +21,8 @@ urlpatterns = [
     url(r'^UserSync$',views.UserSyncAPI),
     url(r'^UserSync/([0-9]+)$',views.UserSyncAPI),
     url(r'^UpdateUserGame$',views.UpdateUserGameAPI),
-    url(r'^UpdateUserGame/([0-9]+)$',views.UpdateUserGameAPI)
-
+    url(r'^UpdateUserGame/([0-9]+)$',views.UpdateUserGameAPI),
+    path('current_storage', UserStorageInfoView.as_view(), name='current_storage'),
+    path('total_storage', UserStorageInfoView.as_view(), name='total_storage')
     #url(r'^userGame/$', userGameAPI, name='userGame')
 ]

@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny,IsAuthenticated
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from rest_framework.authentication import TokenAuthentication
 
 from account.api.serializers import RegistrationSerializer, UserGameSerializer
@@ -21,7 +21,7 @@ from django.http import FileResponse
 
 from account.models import User
 from games.models import Games
-from account.api.serializers import UserGameSerializer,UserSyncSerializer,GameSerializer
+from account.api.serializers import UserGameSerializer,UserSyncSerializer,GameSerializer, UserStorageInfo
 from django.core.files.storage import default_storage
 
 
@@ -118,6 +118,16 @@ def UpdateUserGameAPI(request,id=0):
         #     user_serializer.save()
         #     return JsonResponse("Update Successfully",safe=False)
         return JsonResponse(data,safe=False)
+
+class UserStorageInfoView(RetrieveAPIView):
+    serializer_class = UserStorageInfo
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+    def get_object(self):
+        user_id = Token.objects.get(key=self.request.auth.key).user_id
+        user = User.objects.get(account_id=user_id)
+        return user
+        #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 
 
 class ChildCreateView(generics.CreateAPIView,generics.DestroyAPIView):
