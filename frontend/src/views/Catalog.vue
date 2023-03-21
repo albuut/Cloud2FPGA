@@ -10,9 +10,9 @@
                 <div class="fpgainfo">
                   <h2>Current Storage: {{ currfileSize }}</h2>
                   <h2>Total Storage: {{ totfileSize }}</h2>
-                  
                 </div>
-                <div class="filter">
+                <a href="https://drive.google.com/uc?id=1HvozX_pzDACXNXS4y8mUPSnUtH_aRtJ2&export=download"><div class="sendbutton">Download scripts</div></a>
+                <!-- <div class="filter">
                   <label class="labeltitle" for="menu">Select a filter:</label>
                   <div class="filterops">
                     <select id="menu" name="menu">
@@ -22,7 +22,7 @@
                       <option value="option3">Game Type</option>
                     </select>
                   </div>
-                </div>
+                </div> -->
             </div>
             <div class="mygames" v-if="!showFullCatalog">
               <div class="switchTitles">
@@ -60,6 +60,10 @@
 </template>
 
 <style>
+a{
+  color: black;
+}
+
 .site {
     display: flex;
     flex-direction: column;
@@ -170,7 +174,7 @@
     text-align: center;
     vertical-align: middle;
     height: 30px;
-    line-height: 60px;
+    line-height: 65px;
     width: 200px;
     background-color: #6D8B9C;
     border-radius: 15px;
