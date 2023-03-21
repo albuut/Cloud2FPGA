@@ -288,7 +288,13 @@
         this.$http.get('/api/account/user_game').then((response) =>{
           console.log(response)
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(16)
+          if(response.data.next == null){
+            this.nextPageURL = null
+          }
+          else{
+            this.nextPageURL = response.data.next.slice(-28)
+          }
+          this.prevPageURL = null
         })
         .catch((err) =>{
           console.log(err)
@@ -308,7 +314,7 @@
         this.$http.get('/api/games/all-games').then((response) =>{
           console.log(response)
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(16)
+          this.nextPageURL = response.data.next.slice(-28)
         })
         .catch((err) =>{
           console.log(err)
@@ -320,9 +326,9 @@
           console.log(response)
           this.allGames = response.data.results
           if(response.data.next != null){
-            this.nextPageURL = response.data.next.slice(16)
+            this.nextPageURL = response.data.next.slice(-28)
           }
-          this.prevPageURL = response.data.previous.slice(16)
+          this.prevPageURL = response.data.previous.slice(-28)
           console.log(this.prevPageURL)
         })
         .catch((err) =>{
@@ -335,9 +341,9 @@
           this.$http.get(this.prevPageURL).then((response) =>{
           console.log(response)
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(16)
+          this.nextPageURL = response.data.next.slice(-28)
           if(response.data.previous != null){
-            this.prevPageURL = response.data.previous.slice(16)
+            this.prevPageURL = response.data.previous.slice(-28)
           }
         })
         .catch((err) =>{
