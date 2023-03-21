@@ -6,8 +6,10 @@
         <h3 class="logintitle">Login</h3>
         <p class="prompt">Username</p>
         <input type="text" class="userinput" v-model="username">
+        <p class="error" v-if="errorDetected">{{ userError }}</p>
         <p class="prompt">Password</p>
         <input type="password" class="userinput" v-model="password">
+        <p class="error" v-if="errorDetected">{{ passError }}</p>
         <button type="submit" id="submit">Log in</button>
         <p class="switch">
           Don't have an account?
@@ -53,6 +55,15 @@
   font-weight: 400;
   font-size: 20px;
 }
+.error {
+  margin-left: 15%;
+  margin-bottom: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: red;
+}
 .userinput {
   margin-left: 15%;
   margin-bottom: 22px;
@@ -82,7 +93,10 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      passError: '',
+      userError: '',
+      errorDetected: false,
     }
   },
   methods: {
@@ -95,7 +109,6 @@ export default {
       axios
         .post('/api/account/login', formData)
         .then(response => {
-          console.log(response)
 
           const token = response.data.token
 
@@ -110,7 +123,17 @@ export default {
           this.$router.push('/catalog')
         })
         .catch(error => {
-          console.log(error)
+          this.errorDetected = true
+          console.log(error.response.data)
+          if(error.response.data.username != undefined){
+            this.userError = error.response.data.username[0] 
+          }
+          if(error.response.data.password != undefined){
+            this.passError = error.response.data.password[0]
+          }
+          if(error.response.data.non_field_errors != undefined){
+            this.passError = error.response.data.non_field_errors[0]
+          }
         })
     }
   },

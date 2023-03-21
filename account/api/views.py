@@ -41,12 +41,13 @@ def registration_view(request):
             data['username'] = account.username
             token = Token.objects.get(user=account).key
             data['token'] = token
+            return Response(data)
         else:
             data = serializer.errors
-        return Response(data)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 class UserGameApiView(ListAPIView):
-    serializer_class = GamesSerializer
+    serializer_class = GameSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     pagination_class = PageNumberPagination
@@ -65,7 +66,7 @@ def userGameAPI(request,id=0):
         #need to make sure its length is 26 characters. if its shorter or longer the function blows up
         users = User.objects.all().filter(account_id=user_id)
         user_serializer = UserGameSerializer(users,many=True)
-        data = user_serializer.data
+        data = user_serializer.data                   
         
 
         #using FileResponse
