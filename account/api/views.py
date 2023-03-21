@@ -56,7 +56,6 @@ class UserGameApiView(ListAPIView):
         user = User.objects.get(account_id=user_id)
         return user.game.all()
 
-@api_view(['GET',])
 @csrf_exempt
 def userGameAPI(request,id=0):
     if request.method=='GET':
