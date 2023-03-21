@@ -1,2 +1,0 @@
-Asteroids Deluxe,/media/rmaFolder/Asteroids%20Deluxe.mra,/media/rbfFolder/AsteroidsDeluxe_20220313.rbf,arcade,https://archive.org/download/MAME216RomsOnlyMerged/astdelux.zip,games/mame/astdelux.zip
-Asteroids,/media/rmaFolder/Asteroids.mra,/media/rbfFolder/Asteroids_20220313.rbf,arcade,https://archive.org/download/MAME220RomsOnlyMerged/asteroid.zip,games/mame/asteroid.zip
