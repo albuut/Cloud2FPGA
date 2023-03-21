@@ -56,6 +56,7 @@ class UserGameApiView(ListAPIView):
         user = User.objects.get(account_id=user_id)
         return user.game.all()
 
+@api_view(['GET',])
 @csrf_exempt
 def userGameAPI(request,id=0):
     if request.method=='GET':
@@ -82,6 +83,7 @@ def userGameAPI(request,id=0):
         return JsonResponse(data[0]['game'], safe=False)
         #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 
+@api_view(['GET','PUT'])
 @csrf_exempt
 def UserSyncAPI(request,id=0):
     if request.method=='GET':
