@@ -34,6 +34,13 @@
           Unadd
           </button>
           <div v-else class="add-btn1">Unadded</div>
+          <button
+            type="button"
+            class="add-btn"
+            @click="playGame"
+          >
+          Play
+          </button>
         </footer>
       </div>
     </div>
@@ -49,6 +56,7 @@ export default {
   },
   data () {
       return {
+        playing: false
       }
     },
   methods: {
@@ -65,7 +73,13 @@ export default {
       axios.delete('/api/parent/1/child/create/', {data:{game_name : game_name_}}).then((response) =>{
         this.added = true
       })
-    }
+    },
+    playGame(){
+      axios.put('/api/account/UserSync', {play_flag: this.info.rma_file.slice(23)}).then((response) =>{
+        console.log(response)
+        this.playing = true
+      })
+    },
   }
 }
 </script>
