@@ -21,11 +21,11 @@
         <div class="setup">
             <h1 class="setuptitle" id="box">How To Set MiSTer Up</h1>
             <h3 class="setupinfo">Follow this link for a set up guide! <br>
-            <a href="https://www.youtube.com/watch?v=sMsonyMgzoY&t=72s">MiSTer Setup</a></h3>
+            <a href="https://www.youtube.com/watch?v=sMsonyMgzoY&t=72s"> MiSTer Setup</a></h3>
         </div> 
         <div class="script">
             <h1 class="scripttitle" id="box">Where To Put Download Script</h1>
-            <h3 class="scriptinfo">Drag and drop the cloud2fpga folder into the Scripts directory. You will be able to togle the script
+            <h3 class="scriptinfo">Drag and drop the cloud2fpga folder into the Scripts directory. You will be able to toggle the script
               on and off in the scripts menu. The script needs to be turned on every time the MiSTer reboots. </h3>
             </div>   
         <div class="errors">
