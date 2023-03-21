@@ -280,7 +280,7 @@
 
       syncWithFPGA(){
         this.sentConfirmation = false;
-        axios.put('/api/account/UserSync', {sync_flag: true}).then((response) =>{
+        axios.put('/api/account/sync', {sync_flag: true}).then((response) =>{
           this.sentConfirmation = true
         })
       },

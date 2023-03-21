@@ -75,7 +75,7 @@ export default {
       })
     },
     playGame(){
-      axios.put('/api/account/UserSync', {play_flag: this.info.rma_file.slice(23)}).then((response) =>{
+      axios.put('/api/account/sync', {play_flag: this.info.rma_file.slice(23)}).then((response) =>{
         console.log(response)
         this.playing = true
       })
