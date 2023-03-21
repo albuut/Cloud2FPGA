@@ -28,6 +28,7 @@ urlpatterns = [
     path('parent/<int:id>/child/create/', ChildCreateView.as_view(), name='create_child'),
     #REST
     path('api/account/', include('account.api.urls', 'account_api')),
+    path('api/games/', include('games.api.urls', 'games_api')),
     #url(r'^', include('account.api.urls'))
 
     

@@ -5,7 +5,8 @@
           <div class="mystuff">
             <div class="fpga" v-if="!showFullCatalog">
                 <h2 class="fpgatitle">FPGA board connected</h2>
-                <div class="sendbutton">Send games to board</div>
+                <div @click="syncWithFPGA" class="sendbutton">Sync with board</div>
+                <p v-if="sentConfirmation">Successfully synced!</p>
                 <div class="fpgainfo">
                   <h2>Current Storage: {{ currfileSize }}</h2>
                   <h2>Total Storage: {{ totfileSize }}</h2>
@@ -41,10 +42,11 @@
             <div class="catalog" v-if="showFullCatalog">
               <div class="switchTitles">
                 <h2 class="switchtitle" :class="{active: showFullCatalog}" @click="showFullCatalog=true">Catalog</h2>
-                <h2 class="switchtitle" :class="{active: showFullCatalog}" @click="showFullCatalog=false; getUserGames();">My Games</h2>
+                <h2 class="switchtitle" :class="{active: showFullCatalog}" @click="showFullCatalog=false; getUserGames(); sentConfirmation=false;">My Games</h2>
+              </div>
               <div class="theList">
                 <div v-for="game in allGames" :key="game.id" class="card">
-                  <GameComp :info="game"/>
+                  <GameComp :info="game" :added="false" :fullCatalog="showFullCatalog"/>
                 </div>
               </div>
               <div class="nextPrev">
@@ -55,7 +57,6 @@
           </div>
         </div>
     </div>
-  </div>
 </template>
 
 <style>
@@ -168,14 +169,15 @@
 .sendbutton {
     text-align: center;
     vertical-align: middle;
-    height: 60px;
-    line-height: 90px;
-    width: 288px;
+    height: 30px;
+    line-height: 60px;
+    width: 200px;
     background-color: #6D8B9C;
     border-radius: 15px;
     font-size: 24px;
     margin-top: 10%;
     padding-bottom: 10%;
+    cursor: pointer;
 }
 .myList{
   display: grid;
@@ -217,6 +219,7 @@
   import allGames from "../assets/catalogGames.json"
   import GameComp from "../components/GameComp.vue";
   import NavBar from "../components/NavBar.vue";
+  import axios from 'axios'
   var myFunction = function() {
       document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -233,8 +236,10 @@
         nextPageURL: null,
         prevPageURL: null,
         showFullCatalog: true,
+
         total_storage: null,
-        current_storage:null
+        current_storage:null,
+        sentConfirmation: false,
       }
     },
     computed: {
@@ -242,6 +247,8 @@
       // Check if file size is less than 1000 MB
       if (this.convertFileSize(this.current_storage) < 1000) {
         return `${this.convertFileSize(this.current_storage)} MB`;
+
+        sentConfirmation: false,
       }
       // Call the convertFileSize function and return the size in GB with the appropriate unit
       const sizeInGB = this.convertFileSize2(this.current_storage);
@@ -272,6 +279,13 @@
       const roundedSizeInGB = Math.round(sizeInGB * 100) / 100;
       return roundedSizeInGB;
     },
+
+      syncWithFPGA(){
+        this.sentConfirmation = false;
+        axios.put('/api/account/UserSync', {data:{sync_flag: true}}).then((response) =>{
+          this.sentConfirmation = true
+        })
+      },
       getUserGames(){
         this.$http.get('/api/account/user_game').then((response) =>{
           console.log(response)
