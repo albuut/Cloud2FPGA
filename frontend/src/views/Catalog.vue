@@ -10,9 +10,9 @@
                 <div class="fpgainfo">
                   <h2>Current Storage: {{ currfileSize }}</h2>
                   <h2>Total Storage: {{ totfileSize }}</h2>
-                  
                 </div>
-                <div class="filter">
+                <a href="https://drive.google.com/uc?id=1HvozX_pzDACXNXS4y8mUPSnUtH_aRtJ2&export=download"><div class="sendbutton">Download scripts</div></a>
+                <!-- <div class="filter">
                   <label class="labeltitle" for="menu">Select a filter:</label>
                   <div class="filterops">
                     <select id="menu" name="menu">
@@ -22,7 +22,7 @@
                       <option value="option3">Game Type</option>
                     </select>
                   </div>
-                </div>
+                </div> -->
             </div>
             <div class="mygames" v-if="!showFullCatalog">
               <div class="switchTitles">
@@ -60,6 +60,10 @@
 </template>
 
 <style>
+a{
+  color: black;
+}
+
 .site {
     display: flex;
     flex-direction: column;
@@ -170,7 +174,7 @@
     text-align: center;
     vertical-align: middle;
     height: 30px;
-    line-height: 60px;
+    line-height: 65px;
     width: 200px;
     background-color: #6D8B9C;
     border-radius: 15px;
@@ -284,6 +288,9 @@
           this.sentConfirmation = true
         })
       },
+      fixURL(url){
+        return url.slice(0, 16) + ':8800' + url.slice(16)
+      },
       getUserGames(){
         this.$http.get('/api/account/user_game').then((response) =>{
           console.log(response)
@@ -292,7 +299,7 @@
             this.nextPageURL = null
           }
           else{
-            this.nextPageURL = response.data.next.slice(-28)
+            this.nextPageURL = this.fixURL(response.data.next)
           }
           this.prevPageURL = null
         })
@@ -313,8 +320,10 @@
       getAllGames(){
         this.$http.get('/api/games/all-games').then((response) =>{
           console.log(response)
+          this.prevPageURL = null
+          this.nextPageURL = null
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(-28)
+          this.nextPageURL = this.fixURL(response.data.next)
         })
         .catch((err) =>{
           console.log(err)
@@ -326,10 +335,9 @@
           console.log(response)
           this.allGames = response.data.results
           if(response.data.next != null){
-            this.nextPageURL = response.data.next.slice(-28)
+            this.nextPageURL = this.fixURL(response.data.next)
           }
-          this.prevPageURL = response.data.previous.slice(-28)
-          console.log(this.prevPageURL)
+          this.prevPageURL = this.fixURL(response.data.previous)
         })
         .catch((err) =>{
           console.log(err)
@@ -341,9 +349,9 @@
           this.$http.get(this.prevPageURL).then((response) =>{
           console.log(response)
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(-28)
+          this.nextPageURL = this.fixURL(response.data.next)
           if(response.data.previous != null){
-            this.prevPageURL = response.data.previous.slice(-28)
+            this.prevPageURL = this.fixURL(response.data.previous)
           }
         })
         .catch((err) =>{
