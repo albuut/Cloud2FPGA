@@ -96,10 +96,9 @@ def UserSyncAPI(request,id=0):
         return JsonResponse(data, safe=False)
     
     elif request.method=='PUT':
-        user_id = Token.objects.get(key=request.auth.key).user_id
-        user_data = request.data
+        user_data = JSONParser().parse((request))
 
-        user=User.objects.get(account_id=user_id)
+        user=User.objects.get(account_id=user_data['value'])
         user_serializer = UserSyncSerializer(user,data=user_data)
         if user_serializer.is_valid():
             user_serializer.save()
