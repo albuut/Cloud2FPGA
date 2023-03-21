@@ -8,7 +8,7 @@
                 <div @click="syncWithFPGA" class="sendbutton">Sync with board</div>
                 <p v-if="sentConfirmation">Successfully synced!</p>
                 <div class="fpgainfo">
-                  <h2>Current Storage: {{ currfileSize }}</h2>
+                  <h2>Free Storage: {{ currfileSize }}</h2>
                   <h2>Total Storage: {{ totfileSize }}</h2>
                 </div>
                 <a href="https://drive.google.com/uc?id=1HvozX_pzDACXNXS4y8mUPSnUtH_aRtJ2&export=download"><div class="sendbutton">Download scripts</div></a>
