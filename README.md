@@ -165,7 +165,7 @@ containers include the bash shell. Type the following command to bring up a shel
 $ docker compose exec <service name> /bin/bash
 ```
 
-You can even print up the PostgreSQL command line tool with the following command:
+You can even bring up the PostgreSQL command line tool with the following command:
 
 ```sh
 $ docker compose exec db psql -U postgres
