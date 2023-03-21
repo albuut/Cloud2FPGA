@@ -247,8 +247,6 @@
       // Check if file size is less than 1000 MB
       if (this.convertFileSize(this.current_storage) < 1000) {
         return `${this.convertFileSize(this.current_storage)} MB`;
-
-        sentConfirmation: false,
       }
       // Call the convertFileSize function and return the size in GB with the appropriate unit
       const sizeInGB = this.convertFileSize2(this.current_storage);
