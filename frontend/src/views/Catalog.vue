@@ -284,6 +284,9 @@
           this.sentConfirmation = true
         })
       },
+      fixURL(url){
+        return url.slice(0, 16) + ':8800' + url.slice(16)
+      },
       getUserGames(){
         this.$http.get('/api/account/user_game').then((response) =>{
           console.log(response)
@@ -292,7 +295,7 @@
             this.nextPageURL = null
           }
           else{
-            this.nextPageURL = response.data.next.slice(-28)
+            this.nextPageURL = this.fixURL(response.data.next)
           }
           this.prevPageURL = null
         })
@@ -313,8 +316,10 @@
       getAllGames(){
         this.$http.get('/api/games/all-games').then((response) =>{
           console.log(response)
+          this.prevPageURL = null
+          this.nextPageURL = null
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(-28)
+          this.nextPageURL = this.fixURL(response.data.next)
         })
         .catch((err) =>{
           console.log(err)
@@ -326,10 +331,9 @@
           console.log(response)
           this.allGames = response.data.results
           if(response.data.next != null){
-            this.nextPageURL = response.data.next.slice(-28)
+            this.nextPageURL = this.fixURL(response.data.next)
           }
-          this.prevPageURL = response.data.previous.slice(-28)
-          console.log(this.prevPageURL)
+          this.prevPageURL = this.fixURL(response.data.previous)
         })
         .catch((err) =>{
           console.log(err)
@@ -341,9 +345,9 @@
           this.$http.get(this.prevPageURL).then((response) =>{
           console.log(response)
           this.allGames = response.data.results
-          this.nextPageURL = response.data.next.slice(-28)
+          this.nextPageURL = this.fixURL(response.data.next)
           if(response.data.previous != null){
-            this.prevPageURL = response.data.previous.slice(-28)
+            this.prevPageURL = this.fixURL(response.data.previous)
           }
         })
         .catch((err) =>{
