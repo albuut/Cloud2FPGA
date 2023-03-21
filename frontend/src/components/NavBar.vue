@@ -8,6 +8,7 @@
             <router-link to="/login"><div v-if="navbartype ==='home'" class="button">Get Started</div></router-link>
             <router-link to="/faq"><div v-if="navbartype ==='faq'" class="button">FAQ</div></router-link>
             <router-link to="/catalog"><div v-if="navbartype ==='catalog'" class="button">Catalog</div></router-link>
+            <router-link to="/"><div v-if="navbartype ==='faq' || navbartype === 'catalog'" @click="logout" class="button">Log out</div></router-link>
         </div>
       
     </div>
@@ -17,7 +18,12 @@
 export default {
     props: {
         navbartype: String
-    }
+    },
+    methods: {
+        logout(){
+            localStorage.removeItem('token')
+        }
+    },
 }
 </script>
 
@@ -45,6 +51,8 @@ export default {
 }
 .menu {
     margin: auto 2rem auto auto;
+    display: flex;
+    flex-direction: row;
 }
 .button {
     width: 130.67px;

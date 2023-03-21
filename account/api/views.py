@@ -41,9 +41,10 @@ def registration_view(request):
             data['username'] = account.username
             token = Token.objects.get(user=account).key
             data['token'] = token
+            return Response(data)
         else:
             data = serializer.errors
-        return Response(data)
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
 class UserGameApiView(ListAPIView):
     serializer_class = GamesSerializer

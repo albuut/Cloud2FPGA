@@ -6,12 +6,15 @@
           <h3 class="registertitle">Register</h3>
           <p class="prompt">Username</p>
           <input type="text" class="userinput" v-model="username">
+          <p class="error" v-if="errorDetected">{{ userError }}</p>
           <p class="prompt">Email</p>
           <input type="text" class="userinput" v-model="email">
           <p class="prompt">Password</p>
           <input type="password" class="userinput" v-model="password">
+          <p class="error" v-if="errorDetected">{{ passError }}</p>
           <p class="prompt">Confirm Password</p>
           <input type="password" class="userinput" v-model="password2">
+          <p class="error" v-if="errorDetected">{{ pass2Error }}</p>
           <button id="submit">Submit</button>
           <p class="switch">
           Already have an account?
@@ -64,6 +67,15 @@
     border-radius: 10px;
     font-size: large;
   }
+  .error {
+  margin-left: 15%;
+  margin-bottom: 22px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: red;
+}
   #submit {
     width: 330px;
     height: 55px;
@@ -90,6 +102,10 @@
         email: "",
         password: "",
         password2: "",
+        userError: "",
+        passError: "",
+        pass2Error: "",
+        errorDetected: false,
       }
     },
     methods: {
@@ -106,8 +122,23 @@
                 this.$router.push('/login')
                 console.log(response)
               })
-              .error(error => {
-                console.log(error)
+              .catch(error => {
+                this.userError = ''
+                this.passError = ''
+                this.pass2Error = ''
+                this.errorDetected = true
+                if(error.response.data.username != undefined){
+                  this.userError = error.response.data.username[0] 
+                }
+                if(error.response.data.password != undefined){
+                  this.passError = error.response.data.password[0]
+                }
+                if(error.response.data.password2 != undefined){
+                  this.pass2Error = error.response.data.password2[0]
+                }
+                if(error.response.data.non_field_errors != undefined){
+                  this.pass2Error = error.response.data.non_field_errors[0]
+                }
               })
               
         }
