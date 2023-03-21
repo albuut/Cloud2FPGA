@@ -5,6 +5,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
+from rest_framework.authtoken.models import Token
 
 from account.models import User
 from games.models import Games
@@ -21,8 +22,13 @@ def all_games(request):
     return Response(serializer.data)
 
 class ApiGameListView(ListAPIView):
-    queryset = Games.objects.all()
     serializer_class = GamesSerializer
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
     pagination_class = PageNumberPagination
+    def get_queryset(self):
+        user_id = Token.objects.get(key=self.request.auth.key).user_id
+        user = User.objects.get(account_id=user_id)
+        user_games = user.game.all()
+        all_games = Games.objects.all()
+        return all_games.difference(user_games).order_by('game_name')

@@ -81,7 +81,7 @@ def userGameAPI(request,id=0):
         return JsonResponse(data[0]['game'], safe=False)
         #return JsonResponse(data[0]['game'][1]['rma_file'], safe=False)
 
-
+@api_view(['GET','PUT'])
 @csrf_exempt
 def UserSyncAPI(request,id=0):
     if request.method=='GET':
@@ -96,9 +96,10 @@ def UserSyncAPI(request,id=0):
         return JsonResponse(data, safe=False)
     
     elif request.method=='PUT':
-        user_data = JSONParser().parse((request))
+        user_id = Token.objects.get(key=request.auth.key).user_id
+        user_data = request.data
 
-        user=User.objects.get(account_id=user_data['value'])
+        user=User.objects.get(account_id=user_id)
         user_serializer = UserSyncSerializer(user,data=user_data)
         if user_serializer.is_valid():
             user_serializer.save()
@@ -119,12 +120,12 @@ def UpdateUserGameAPI(request,id=0):
         return JsonResponse(data,safe=False)
 
 
-class ChildCreateView(generics.CreateAPIView):
+class ChildCreateView(generics.CreateAPIView,generics.DestroyAPIView):
     queryset = User.objects.all()
     serializer_class = GameSerializer
 
     def create(self, request, *args, **kwargs):
-        parent_id = request.data.get('acount_id')
+        parent_id = Token.objects.get(key=self.request.auth.key).user_id
         game_name = request.data.get('game_name')
 
 
@@ -139,3 +140,20 @@ class ChildCreateView(generics.CreateAPIView):
         serializer = self.get_serializer(child)
         headers = self.get_success_headers(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+    
+    def destroy(self,request,*args, **kwargs):
+        parent_id = Token.objects.get(key=self.request.auth.key).user_id
+        game_name = request.data.get('game_name')
+
+
+        parent = User.objects.filter(account_id=parent_id).first()
+
+        if not parent:
+            return Response({'acount_id': 'Invalid parent id'}, status=status.HTTP_400_BAD_REQUEST)
+
+        child = Games.objects.get(game_name=game_name)
+        parent.game.remove(child)
+
+        serializer = self.get_serializer(child)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, headers=headers)
